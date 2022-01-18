@@ -20,7 +20,7 @@ def hello():
 
 
 def convert_json():
-    data_from_csv = pd.read_csv("C:\\Users\\User\\PycharmProjects\\flaskProject\\csv_files\\peerGraph_07-11-21.csv", delimiter=';')
+    data_from_csv = pd.read_csv("csv_files\\peerGraph_07-11-21.csv", delimiter=';')
     iter = 0
     count = 1
     data_to_json = {}
@@ -56,11 +56,7 @@ def convert_json():
 
 @app.route("/json")
 def get_json():
-    #global converted_data
-    #converted_data = convert_json()
     return jsonify({"data": converted_data}), 200
-    # with open('C:\\Users\\User\\Downloads\\peerGraph_07-11-21.json', 'w') as outfile:
-    #    json.dump(data_to_json, outfile)
 
 
 @app.route("/nodes")
